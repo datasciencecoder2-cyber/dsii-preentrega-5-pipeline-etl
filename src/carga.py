@@ -21,5 +21,6 @@ def guardar_resultados(df: pd.DataFrame, reporte: dict, parquet: Path, reporte_j
         raise ValueError("Parquet escrito no supera la validación de filas y nulos")
     if list(verificado.columns) != list(df.columns):
         raise ValueError("El Parquet no conserva el esquema previsto")
-    reporte_json.write_text(json.dumps(reporte, ensure_ascii=False, indent=2) + "
-", encoding="utf-8")
+
+    reporte_json.write_text(json.dumps(reporte, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
