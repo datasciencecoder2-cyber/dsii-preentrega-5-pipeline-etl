@@ -1,0 +1,24 @@
+{
+  "filas_csv_original": 50,
+  "productos_excel_original": 16,
+  "duplicados_exactos_eliminados": 2,
+  "ventas_descartadas": {
+    "id_transaccion_o_producto_ausente": 1,
+    "cantidad_ausente_no_entera_o_no_positiva": 1,
+    "fecha_invalida_o_ausente": 1
+  },
+  "productos_descartados": {
+    "sin_datos_criticos_o_precio_invalido": 1
+  },
+  "imputaciones": {
+    "categoria_no_informada": 1,
+    "canal_no_informado": 2,
+    "region_no_informado": 1
+  },
+  "productos_excel_validos": 15,
+  "filas_finales": 45,
+  "nulos_criticos_finales": 0,
+  "importe_total_ventas": 30889500.0,
+  "fecha_es_datetime": true,
+  "productos_distintos_vendidos": 15
+}

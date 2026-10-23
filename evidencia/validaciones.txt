@@ -1,0 +1,53 @@
+DATA SCIENCE II — PRE-ENTREGA 5 | VERIFICACIONES
+
+test_01_entrada_y_duplicados (test_pipeline.TestPipeline.test_01_entrada_y_duplicados) ... ok
+test_02_nulos_criticos (test_pipeline.TestPipeline.test_02_nulos_criticos) ... ok
+test_03_filas_finales (test_pipeline.TestPipeline.test_03_filas_finales) ... ok
+test_04_fecha_es_datetime (test_pipeline.TestPipeline.test_04_fecha_es_datetime) ... ok
+test_05_llaves_unicas (test_pipeline.TestPipeline.test_05_llaves_unicas) ... ok
+test_06_importes_coherentes (test_pipeline.TestPipeline.test_06_importes_coherentes) ... ok
+test_07_columnas_normalizadas (test_pipeline.TestPipeline.test_07_columnas_normalizadas) ... ok
+test_08_un_producto_inexistente_bloquea_el_merge (test_pipeline.TestPipeline.test_08_un_producto_inexistente_bloquea_el_merge) ... ok
+test_09_id_duplicado_con_cambios_es_error (test_pipeline.TestPipeline.test_09_id_duplicado_con_cambios_es_error) ... ok
+test_10_validacion_final (test_pipeline.TestPipeline.test_10_validacion_final) ... ok
+test_11_parquet_incluido_y_firma_correcta (test_pipeline.TestPipeline.test_11_parquet_incluido_y_firma_correcta) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.220s
+
+OK
+
+RESULTADOS DEL PIPELINE (etapas Extracción y Transformación ejecutadas)
+{
+  "filas_csv_original": 50,
+  "productos_excel_original": 16,
+  "duplicados_exactos_eliminados": 2,
+  "ventas_descartadas": {
+    "id_transaccion_o_producto_ausente": 1,
+    "cantidad_ausente_no_entera_o_no_positiva": 1,
+    "fecha_invalida_o_ausente": 1
+  },
+  "productos_descartados": {
+    "sin_datos_criticos_o_precio_invalido": 1
+  },
+  "imputaciones": {
+    "categoria_no_informada": 1,
+    "canal_no_informado": 2,
+    "region_no_informado": 1
+  },
+  "productos_excel_validos": 15,
+  "filas_finales": 45,
+  "nulos_criticos_finales": 0,
+  "importe_total_ventas": 30889500.0,
+  "fecha_es_datetime": true,
+  "productos_distintos_vendidos": 15
+}
+
+COMPARACIÓN CON PRE-ENTREGA 2
+- El DataFrame (45 x 10) coincide celda por celda y en tipos con el DataFrame resultante de la Pre-entrega 2: OK.
+- Los dos duplicados agregados a los 48 registros originales se eliminan sin cambiar el resultado.
+- El Parquet adjunto es la exportación previamente validada del mismo dataset limpio.
+- Firma PAR1 de Parquet al inicio y al final: OK.
+- La prueba de escritura y lectura completa requiere pyarrow instalado en el entorno del usuario;
+  el script main.py incluye ambas operaciones y valida su resultado.
+- En este entorno no está instalado pyarrow: NO se afirma haber regenerado aquí el archivo.
